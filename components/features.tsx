@@ -7,6 +7,27 @@ import { Transition } from '@headlessui/react'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-top.svg'
 
+const consultants = [
+  {
+    name: "Wendie Veloz",
+    position: "Strategic Planning",
+    summary:
+      "Founder of Idea Surgery Consulting, Wendie specializes in strategic planning for nonprofits and social enterprises. Her proven Idea Surgery technique empowers organizations to dissect complex challenges and develop actionable, data-driven solutions that ensure sustainability and impact.",
+  },
+  {
+    name: "Wendie Veloz",
+    position: "Grant Writing",
+    summary:
+      "A grant-writing expert and founder of <strong>OneClickGrants.com,</strong> Holly has over 20 years of experience of working with volunteers and serving on volunteer board, and securing funding for nonprofits. Her expertise in organizational growth and impact evaluation will be critical in crafting MESC’s roadmap.",
+  },
+  {
+    name: "Steve Galindo",
+    position: "Cultural Equity",
+    summary:
+      "Founder of <strong>THESTYLEGUYDE</strong>, Steve is an artist, curator, and community advocate with a deep commitment to <strong>cultural equity and inclusivity</strong>. His experience in community engagement and advocacy will ensure that MESC’s plan is <strong>equitable and representativ</strong>e of its diverse membership.",
+  },
+];
+
 export default function Features() {
 
   const [tab, setTab] = useState<number>(1)
@@ -99,7 +120,7 @@ export default function Features() {
                         className={`transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700`}
                         unmount={false}
                         appear={true}
-                      >                      
+                      >
                         <div className="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
                           <svg className="relative fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="23" height="25">
                             <path fillRule="nonzero" d="M10.55 15.91H.442L14.153.826 12.856 9.91h10.107L9.253 24.991l1.297-9.082Zm.702-8.919L4.963 13.91h7.893l-.703 4.918 6.289-6.918H10.55l.702-4.918Z" />
@@ -112,7 +133,7 @@ export default function Features() {
                         className={`transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700`}
                         unmount={false}
                         appear={true}
-                      >    
+                      >
                         <div className="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
                           <svg className="relative fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
                             <path d="M18 14h-2V8h2c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4v2H8V4c0-2.2-1.8-4-4-4S0 1.8 0 4s1.8 4 4 4h2v6H4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4v-2h6v2c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4ZM16 4c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2h-2V4ZM2 4c0-1.1.9-2 2-2s2 .9 2 2v2H4c-1.1 0-2-.9-2-2Zm4 14c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2h2v2ZM8 8h6v6H8V8Zm10 12c-1.1 0-2-.9-2-2v-2h2c1.1 0 2 .9 2 2s-.9 2-2 2Z" />
@@ -125,7 +146,7 @@ export default function Features() {
                         className={`transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700`}
                         unmount={false}
                         appear={true}
-                      >    
+                      >
                         <div className="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
                           <svg className="relative fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="26" height="14">
                             <path fillRule="nonzero" d="m10 5.414-8 8L.586 12 10 2.586l6 6 8-8L25.414 2 16 11.414z" />
