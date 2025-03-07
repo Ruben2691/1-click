@@ -28,10 +28,10 @@ const phases = [
   {
     title: "Phase 2: Strategic Framework Development",
     description: [
-      "Define 1, 3, and 5-year strategic priorities aligned with MESC’s mission and cultural equity goals.",
-      "Develop implementation plans to expand and diversify MESC’s membership base, specifically targeting the art and education industry.",
+      "Define 1, 3, and 5-year strategic priorities aligned with your mission and goals.",
+      "Develop implementation plans to expand and diversify your audience.",
       "Establish measurable success indicators to track progress over time.",
-      "Strengthen the volunteer engagement strategy, ensuring that board members and volunteers have clear roles, responsibilities, and opportunities for leadership development.",
+      "Strengthen engagement strategy, ensuring admins and contributors have clear roles, responsibilities, and opportunities for leadership development.",
     ],
     img: CarouselImg02,
   },
@@ -40,7 +40,8 @@ const phases = [
     description: [
       "Create workable action plans with measurable milestones and performance indicators.",
       "Develop membership engagement strategies to strengthen participation and retention.",
-      "Integrate a capacity-building framework to ensure the plan remains effective as MESC evolves.",
+      "Integrate a capacity-building framework to ensure the plan remains effective as you evolve.",
+      "Provide a detailed timeline and budget for implementation.",
     ],
     img: CarouselImg03,
   },
@@ -134,8 +135,7 @@ export default function StrategicCarousel() {
           </h2>
           <p className="text-lg text-slate-400">
             Using Idea Surgery, we will employ a four-phase methodology that
-            maximizes engagement and produces a clear, actionable roadmap for
-            MESC.
+            maximizes engagement and produces a clear, actionable roadmap.
           </p>
         </div>
 
@@ -158,7 +158,7 @@ export default function StrategicCarousel() {
         </div>
 
         {/* Carousel navigation arrows */}
-        <div className="flex mt-8 justify-end">
+        <div className="flex mt-8 justify-center gap-6">
           <button className="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
             <span className="sr-only">Previous</span>
             <svg

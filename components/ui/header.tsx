@@ -30,7 +30,7 @@ const signOut = async () => {
 
             {/* Desktop menu links */}
             <ul className="flex grow justify-center flex-wrap items-center">
-              <li>
+              {/* <li>
                 <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">About</Link>
               </li>
               <li>
@@ -44,7 +44,7 @@ const signOut = async () => {
               </li>
               <li>
                 <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/changelog">Changelog</Link>
-              </li>
+              </li> */}
             </ul>
 
           </nav>

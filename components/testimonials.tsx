@@ -7,7 +7,7 @@ import Particles from "./particles";
 export default function DEAICommitment() {
   const bulletPoints = [
     "Facilitate inclusive engagement by ensuring broad representation in decision-making.",
-    "Develop equity-focused strategies to diversify MESC’s membership and leadership.",
+    "Develop equity-focused strategies to diversify your membership and leadership.",
     "Ensure accessible and inclusive planning materials and training resources.",
     "Use data-driven evaluation tools to measure DEAI impact over time.",
   ];

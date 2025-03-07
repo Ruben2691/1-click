@@ -8,22 +8,25 @@ import Illustration from "@/public/images/glow-top.svg";
 
 const consultants = [
   {
-    name: "Wendie Veloz",
-    position: "Strategic Planning",
-    summary:
-      "Founder of Idea Surgery Consulting, Wendie specializes in strategic planning for nonprofits and social enterprises. Her proven Idea Surgery technique empowers organizations to dissect complex challenges and develop actionable, data-driven solutions that ensure sustainability and impact.",
-  },
-  {
     name: "Holly Alsop",
     position: "Grant Writing",
     summary:
       "A grant-writing expert and founder of <strong>OneClickGrants.com</strong>, Holly has over 20 years of experience of working with volunteers and serving on volunteer board, and securing funding for nonprofits. Her expertise in organizational growth and impact evaluation will be critical in crafting MESC’s roadmap.",
+    img: "/images/holly-alsop.webp",
+  },
+  {
+    name: "Wendie Veloz",
+    position: "Strategic Planning",
+    summary:
+      "Founder of Idea Surgery Consulting, Wendie specializes in strategic planning for nonprofits and social enterprises. Her proven Idea Surgery technique empowers organizations to dissect complex challenges and develop actionable, data-driven solutions that ensure sustainability and impact.",
+    img: "/images/holly-alsop.webp",
   },
   {
     name: "Steve Galindo",
     position: "Cultural Equity",
     summary:
-      "Founder of <strong>THESTYLEGUYDE</strong>, Steve is an artist, curator, and community advocate with a deep commitment to <strong>cultural equity and inclusivity</strong>. His experience in community engagement and advocacy will ensure that MESC’s plan is <strong>equitable and representative</strong> of its diverse membership.",
+      "F44ounder of <strong>THESTYLEGUYDE</strong>, Steve is an artist, curator, and community advocate with a deep commitment to <strong>cultural equity and inclusivity</strong>. His experience in community engagement and advocacy will ensure that MESC’s plan is <strong>equitable and representative</strong> of its diverse membership.",
+    img: "/images/holly-alsop.webp",
   },
 ];
 
@@ -50,7 +53,7 @@ export default function Features() {
           </div>
         </div>
 
-        <div className="pt-16 pb-12 md:pt-52 md:pb-20">
+        <div className="pt-16 pb-12 md:pt-52 md:pb-20" id="consultants">
           <div>
             {/* Section content */}
             <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
@@ -80,13 +83,12 @@ export default function Features() {
                     <button
                       key={index}
                       onClick={() => setTab(index)}
-                      className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 italic ${
-                        tab !== index
-                          ? "border-slate-700 opacity-50"
-                          : "border-purple-700 shadow-sm shadow-purple-500/25"
-                      }`}
+                      className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 italic ${tab !== index
+                        ? "border-slate-700 opacity-50"
+                        : "border-purple-700 shadow-sm shadow-purple-500/25"
+                        }`}
                     >
-                      <span>{consultant.name}</span>
+                      <span>{consultant.name} - {consultant.position}</span>
                     </button>
                   ))}
                 </div>
@@ -98,7 +100,7 @@ export default function Features() {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <div className="relative py-24 -mt-12">
+                <div className="relative py-12 -mt-12">
                   {/* Particles animation */}
                   <Particles
                     className="absolute inset-0 -z-10"
@@ -106,76 +108,38 @@ export default function Features() {
                     staticity={30}
                   />
                   <div className="flex items-center justify-center">
-                    <div className="relative h-72 w-90 flex flex-col items-center text-left">
+                    <div className="relative h-72 w-120 flex flex-col items-center text-left">
                       {/* Transition for first consultant */}
-                      <Transition
-                        as="div"
-                        show={tab === 0}
-                        className="transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700"
-                        unmount={false}
-                        appear={true}
-                      >
-                        <div>
-                          <div className="w-full mb-4">
-                            <img src="https://placehold.co/1920x1080" alt="" />
+                      {consultants.map((consultant, index) => (
+                        <Transition
+                          key={index}
+                          as="div"
+                          show={tab === index}
+                          className="transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700"
+                          unmount={false}
+                          appear={true}
+                        >
+                          <div>
+                            <div className="w-full mb-4">
+                              <img src={consultant.img} alt="" />
+                            </div>
+                            <div className="flex w-full gap-3 items-end">
+                              <h3 className="text-3xl font-semibold text-slate-200">
+                                {consultant.name}
+                              </h3>
+                              <h4 className="text-xl italic text-slate-200 pb-0.5">
+                                {consultant.position}
+                              </h4>
+                            </div>
+                            <p
+                              className="mt-2 text-slate-400"
+                              dangerouslySetInnerHTML={{
+                                __html: consultant.summary,
+                              }}
+                            ></p>
                           </div>
-                          <h4 className="text-3xl font-semibold text-slate-200">
-                            {consultants[0].position}
-                          </h4>
-                          <p
-                            className="mt-2 text-slate-400"
-                            dangerouslySetInnerHTML={{
-                              __html: consultants[0].summary,
-                            }}
-                          ></p>
-                        </div>
-                      </Transition>
-                      {/* Transition for second consultant */}
-                      <Transition
-                        as="div"
-                        show={tab === 1}
-                        className="transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700"
-                        unmount={false}
-                        appear={true}
-                      >
-                        <div>
-                          <div className="w-full mb-4">
-                            <img src="https://placehold.co/1920x1080" alt="" />
-                          </div>
-                          <h4 className="text-3xl font-semibold text-slate-200">
-                            {consultants[1].position}
-                          </h4>
-                          <p
-                            className="mt-2 text-slate-400"
-                            dangerouslySetInnerHTML={{
-                              __html: consultants[1].summary,
-                            }}
-                          ></p>
-                        </div>
-                      </Transition>
-                      {/* Transition for third consultant */}
-                      <Transition
-                        as="div"
-                        show={tab === 2}
-                        className="transform transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] data-closed:absolute data-enter:data-closed:-rotate-[60deg] data-leave:data-closed:rotate-[60deg] data-closed:opacity-0 duration-700"
-                        unmount={false}
-                        appear={true}
-                      >
-                        <div>
-                          <div className="w-full mb-4">
-                            <img src="https://placehold.co/1920x1080" alt="" />
-                          </div>
-                          <h4 className="text-3xl font-semibold text-slate-200">
-                            {consultants[2].position}
-                          </h4>
-                          <p
-                            className="mt-2 text-slate-400"
-                            dangerouslySetInnerHTML={{
-                              __html: consultants[2].summary,
-                            }}
-                          ></p>
-                        </div>
-                      </Transition>
+                        </Transition>
+                      ))}
                     </div>
                   </div>
                 </div>

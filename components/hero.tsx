@@ -40,7 +40,7 @@ export default function Hero() {
               data-aos="fade-down"
               data-aos-delay="200"
             >
-              Empowering MESC with a transformative, sustainable roadmap.
+              Empowering organizations with a transformative services.
             </p>
             <div
               className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4"
@@ -50,7 +50,7 @@ export default function Hero() {
               <div>
                 <a
                   className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
-                  href="#0"
+                  href="#consultants"
                 >
                   Meet the Consultants{" "}
                   <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
