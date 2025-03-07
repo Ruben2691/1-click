@@ -63,11 +63,20 @@ interface Phase {
   img: StaticImageData;
 }
 
-const PhaseCard = ({ phase, swiperInitialized }: { phase: Phase; swiperInitialized: boolean }) => {
+const PhaseCard = ({ phase, swiperInitialized }) => {
   const [expanded, setExpanded] = useState(false);
+
+  // Adjust these values as needed for your design:
+  const closedMinHeight = "min-h-[210px]";
+  const expandedMinHeight = "min-h-[520px]";
+
   return (
     <HighlighterItem className="swiper-slide h-auto group/slide">
-      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden p-6">
+      <div
+        className={`relative h-full ${
+          expanded ? expandedMinHeight : closedMinHeight
+        } bg-slate-900 rounded-[inherit] z-20 overflow-hidden p-6`}
+      >
         <Particles
           className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
           quantity={3}
@@ -82,7 +91,7 @@ const PhaseCard = ({ phase, swiperInitialized }: { phase: Phase; swiperInitializ
             alt={phase.title}
           />
           <div className="font-bold text-lg mb-2 text-white">{phase.title}</div>
-          {/* Container for the description with smooth height and opacity transitions */}
+          {/* Description container with smooth transitions */}
           <div
             className={`transition-all duration-500 ease-in-out overflow-hidden ${
               expanded ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
@@ -94,20 +103,21 @@ const PhaseCard = ({ phase, swiperInitialized }: { phase: Phase; swiperInitializ
               ))}
             </ul>
           </div>
-
-          <div className="mt-auto text-right">
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="text-sm font-medium text-slate-300 hover:text-white transition duration-150 ease-in-out"
-            >
-              {expanded ? "Show Less" : "Show More"}
-            </button>
-          </div>
+        </div>
+        {/* Absolute positioning for the button */}
+        <div className="absolute bottom-6 right-6">
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="text-sm font-medium text-slate-300 hover:text-white transition duration-150 ease-in-out"
+          >
+            {expanded ? "Show Less" : "Show More"}
+          </button>
         </div>
       </div>
     </HighlighterItem>
   );
 };
+
 
 export default function StrategicCarousel() {
   const [swiperInitialized, setSwiperInitialized] = useState(false);
