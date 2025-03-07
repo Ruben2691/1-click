@@ -9,23 +9,23 @@ import Illustration from "@/public/images/glow-top.svg";
 const consultants = [
   {
     name: "Holly Alsop",
-    position: "Grant Writing",
+    position: "Chief Visionary Officer",
     summary:
-      "A grant-writing expert and founder of <strong>OneClickGrants.com</strong>, Holly has over 20 years of experience of working with volunteers and serving on volunteer board, and securing funding for nonprofits. Her expertise in organizational growth and impact evaluation will be critical in crafting MESC’s roadmap.",
+      "Holly Alsop is the Chief Visionary Officer of <strong>1 Click Consultants</strong> and a strategic consultant in nonprofit board development, strategic planning, and volunteer coordination. She specializes in helping organizations design and implement sustainable growth strategies.",
     img: "/images/holly-alsop.webp",
   },
   {
     name: "Wendie Veloz",
-    position: "Strategic Planning",
+    position: "Vision-Driven Evolution",
     summary:
-      "Founder of Idea Surgery Consulting, Wendie specializes in strategic planning for nonprofits and social enterprises. Her proven Idea Surgery technique empowers organizations to dissect complex challenges and develop actionable, data-driven solutions that ensure sustainability and impact.",
+      "Creator of <strong>Idea Surgery™</strong>, Wendie specializes in vision-driven evolution for nonprofits and social enterprises. Her proven techniques empower organizations to dissect complex challenges and develop actionable, data-driven solutions that ensure sustainability and impact.",
     img: "/images/wendie-veloz.webp",
   },
   {
     name: "Steve Galindo",
     position: "Cultural Equity",
     summary:
-      "F44ounder of <strong>THESTYLEGUYDE</strong>, Steve is an artist, curator, and community advocate with a deep commitment to <strong>cultural equity and inclusivity</strong>. His experience in community engagement and advocacy will ensure that MESC’s plan is <strong>equitable and representative</strong> of its diverse membership.",
+      "Founder of <strong>THESTYLEGUYDE</strong>, Steve is an artist, curator, and community advocate with a deep commitment to <strong>cultural equity and inclusivity</strong>. His experience in community engagement and advocacy will ensure that your plan is <strong>equitable and representative</strong> of its diverse membership.",
     img: "/images/steve-galindo.webp",
   },
 ];

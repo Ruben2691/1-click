@@ -133,9 +133,14 @@ export default function StrategicCarousel() {
           <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
             Approach to Strategic Planning
           </h2>
+          <h3 className="h4 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
+            Traditional Strategic Planning → Vision-Driven Evolution
+          </h3>
           <p className="text-lg text-slate-400">
-            Using Idea Surgery, we will employ a four-phase methodology that
-            maximizes engagement and produces a clear, actionable roadmap.
+            Instead of rigid five-year plans:
+            Create space for insights and innovation to emerge.
+            Move from hierarchical decision-making to collective intelligence.
+            Allow big-picture ideas to unfold rather than forcing outcomes.
           </p>
         </div>
 
