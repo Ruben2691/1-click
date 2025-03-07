@@ -120,7 +120,7 @@ export default function Features() {
                           appear={true}
                         >
                           <div>
-                            <div className="w-full mb-4">
+                            <div className="w-full mb-4 rounded-[15px] overflow-hidden">
                               <img src={consultant.img} alt="" />
                             </div>
                             <div className="flex w-full gap-3 items-end">
