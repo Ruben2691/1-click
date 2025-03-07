@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Particles from "./particles";
 import Highlighter, { HighlighterItem } from "./highlighter";
 
@@ -57,7 +57,13 @@ const phases = [
 ];
 
 // Subcomponent for each phase card with show more/less functionality and smooth transitions
-const PhaseCard = ({ phase, swiperInitialized }) => {
+interface Phase {
+  title: string;
+  description: string[];
+  img: StaticImageData;
+}
+
+const PhaseCard = ({ phase, swiperInitialized }: { phase: Phase; swiperInitialized: boolean }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <HighlighterItem className="swiper-slide h-auto group/slide">
