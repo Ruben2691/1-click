@@ -19,14 +19,14 @@ const consultants = [
     position: "Strategic Planning",
     summary:
       "Founder of Idea Surgery Consulting, Wendie specializes in strategic planning for nonprofits and social enterprises. Her proven Idea Surgery technique empowers organizations to dissect complex challenges and develop actionable, data-driven solutions that ensure sustainability and impact.",
-    img: "/images/holly-alsop.webp",
+    img: "/images/wendie-veloz.webp",
   },
   {
     name: "Steve Galindo",
     position: "Cultural Equity",
     summary:
       "F44ounder of <strong>THESTYLEGUYDE</strong>, Steve is an artist, curator, and community advocate with a deep commitment to <strong>cultural equity and inclusivity</strong>. His experience in community engagement and advocacy will ensure that MESC’s plan is <strong>equitable and representative</strong> of its diverse membership.",
-    img: "/images/holly-alsop.webp",
+    img: "/images/steve-galindo.webp",
   },
 ];
 

@@ -76,7 +76,7 @@ export default function DEAICommitment() {
         </div>
 
         {/* Navigation Arrows (Back & Next) */}
-        <div className="mt-4 flex justify-center gap-6">
+        <div className="mt-4 flex justify-center">
           <button
             onClick={prevBullet}
             className="relative z-20 w-12 h-12 flex items-center justify-center group"

@@ -40,7 +40,7 @@ export default function Hero() {
               data-aos="fade-down"
               data-aos-delay="200"
             >
-              Empowering organizations with a transformative services.
+              Empowering organizations with transformative services.
             </p>
             <div
               className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4"

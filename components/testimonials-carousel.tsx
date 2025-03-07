@@ -158,7 +158,7 @@ export default function StrategicCarousel() {
         </div>
 
         {/* Carousel navigation arrows */}
-        <div className="flex mt-8 justify-center gap-6">
+        <div className="flex mt-8 justify-center">
           <button className="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
             <span className="sr-only">Previous</span>
             <svg
