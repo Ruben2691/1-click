@@ -1,37 +1,116 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import Particles from './particles'
-import Highlighter, { HighlighterItem } from './highlighter'
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Particles from "./particles";
+import Highlighter, { HighlighterItem } from "./highlighter";
 
-import CarouselImg01 from '@/public/images/carousel-icon-01.svg'
-import CarouselImg02 from '@/public/images/carousel-icon-02.svg'
-import CarouselImg03 from '@/public/images/carousel-icon-03.svg'
-import CarouselImg04 from '@/public/images/carousel-icon-04.svg'
-import CarouselImg05 from '@/public/images/carousel-icon-05.svg'
+import CarouselImg01 from "@/public/images/carousel-icon-01.svg";
+import CarouselImg02 from "@/public/images/carousel-icon-02.svg";
+import CarouselImg03 from "@/public/images/carousel-icon-03.svg";
+import CarouselImg04 from "@/public/images/carousel-icon-04.svg";
 
-// Import Swiper
-import Swiper, { Navigation } from 'swiper'
-import 'swiper/swiper.min.css'
-Swiper.use([Navigation])
+import Swiper, { Navigation } from "swiper";
+import "swiper/swiper.min.css";
+Swiper.use([Navigation]);
 
-export default function TestimonialsCarousel() {
+const phases = [
+  {
+    title: "Phase 1: Assessment & Stakeholder Engagement",
+    description: [
+      "Facilitate Idea Surgery brainstorming sessions to develop creative solutions.",
+      "Conduct a SWOT analysis to evaluate strengths, weaknesses, opportunities, and threats.",
+      "Conduct focus groups and targeted surveys with board members, members, and key stakeholders.",
+      "Identify critical membership needs and growth opportunities.",
+    ],
+    img: CarouselImg01,
+  },
+  {
+    title: "Phase 2: Strategic Framework Development",
+    description: [
+      "Define 1, 3, and 5-year strategic priorities aligned with MESC’s mission and cultural equity goals.",
+      "Develop implementation plans to expand and diversify MESC’s membership base, specifically targeting the art and education industry.",
+      "Establish measurable success indicators to track progress over time.",
+      "Strengthen the volunteer engagement strategy, ensuring that board members and volunteers have clear roles, responsibilities, and opportunities for leadership development.",
+    ],
+    img: CarouselImg02,
+  },
+  {
+    title: "Phase 3: Implementation Planning",
+    description: [
+      "Create workable action plans with measurable milestones and performance indicators.",
+      "Develop membership engagement strategies to strengthen participation and retention.",
+      "Integrate a capacity-building framework to ensure the plan remains effective as MESC evolves.",
+    ],
+    img: CarouselImg03,
+  },
+  {
+    title: "Phase 4: Evaluation & Sustainability",
+    description: [
+      "Establish a performance measurement framework to track impact and outcomes.",
+      "Integrate ongoing assessment tools for long-term adaptability that includes feedback from the stakeholders.",
+      "Provide a resource sustainability plan to ensure continued growth and financial stability.",
+    ],
+    img: CarouselImg04,
+  },
+];
 
-  const [swiperInitialized, setSwiperInitialized] = useState<boolean>(false)
+// Subcomponent for each phase card with show more/less functionality and smooth transitions
+const PhaseCard = ({ phase, swiperInitialized }) => {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <HighlighterItem className="swiper-slide h-auto group/slide">
+      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden p-6">
+        <Particles
+          className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
+          quantity={3}
+          refresh={swiperInitialized}
+        />
+        <div className="flex flex-col h-full">
+          <Image
+            className="mb-3"
+            src={phase.img}
+            width={56}
+            height={56}
+            alt={phase.title}
+          />
+          <div className="font-bold text-lg mb-2 text-white">{phase.title}</div>
+          {/* Container for the description with smooth height and opacity transitions */}
+          <div
+            className={`transition-all duration-500 ease-in-out overflow-hidden ${
+              expanded ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
+            }`}
+          >
+            <ul className="text-slate-400 space-y-2 list-disc list-inside">
+              {phase.description.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-auto text-right">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="text-sm font-medium text-slate-300 hover:text-white transition duration-150 ease-in-out"
+            >
+              {expanded ? "Show Less" : "Show More"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </HighlighterItem>
+  );
+};
+
+export default function StrategicCarousel() {
+  const [swiperInitialized, setSwiperInitialized] = useState(false);
 
   useEffect(() => {
-    const carousel = new Swiper('.stellar-carousel', {
+    new Swiper(".stellar-carousel", {
       breakpoints: {
-        320: {
-          slidesPerView: 1
-        },
-        640: {
-          slidesPerView: 2
-        },
-        1024: {
-          slidesPerView: 3
-        }
+        320: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
       },
       grabCursor: true,
       loop: false,
@@ -39,155 +118,69 @@ export default function TestimonialsCarousel() {
       initialSlide: 0,
       spaceBetween: 24,
       navigation: {
-        nextEl: '.carousel-next',
-        prevEl: '.carousel-prev',
+        nextEl: ".carousel-next",
+        prevEl: ".carousel-prev",
       },
-    })
-    setSwiperInitialized(true)
-  }, [])
+    });
+    setSwiperInitialized(true);
+  }, []);
 
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-12 md:pt-20">
+        <div className="pt-12 md:pt-20 text-center">
+          <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
+            Approach to Strategic Planning
+          </h2>
+          <p className="text-lg text-slate-400">
+            Using Idea Surgery, we will employ a four-phase methodology that
+            maximizes engagement and produces a clear, actionable roadmap for
+            MESC.
+          </p>
+        </div>
 
-          {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <div>
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
-            </div>
-            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Spot issues faster</h2>
-            <p className="text-lg text-slate-400">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+        {/* Center the carousel under the header */}
+        <div className="relative mt-8">
+          <div className="stellar-carousel swiper-container group flex justify-center">
+            <Highlighter
+              className="swiper-wrapper mx-auto"
+              refresh={swiperInitialized}
+            >
+              {phases.map((phase, index) => (
+                <PhaseCard
+                  key={index}
+                  phase={phase}
+                  swiperInitialized={swiperInitialized}
+                />
+              ))}
+            </Highlighter>
           </div>
+        </div>
 
-          {/* Carousel built with Swiper.js [https://swiperjs.com/] */}
-          {/* * Custom styles in src/css/additional-styles/theme.scss */}
-          <div className="relative before:absolute before:inset-0 before:-translate-x-full before:z-20 before:bg-linear-to-l before:from-transparent before:to-slate-900 before:to-20% after:absolute after:inset-0 after:translate-x-full after:z-20 after:bg-linear-to-r after:from-transparent after:to-slate-900 after:to-20%">
-            <div className="stellar-carousel swiper-container group">
-              <Highlighter className="swiper-wrapper w-fit" refresh={swiperInitialized}>
-                {/* Carousel items */}
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    {/* Particles animation */}
-                    <Particles className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out" quantity={3} refresh={swiperInitialized} /> 
-                    {/* Radial gradient */}
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg01} width={56} height={56} alt="Icon 01" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Anonymous User</div>
-                        <div className="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
-                      </div>
-                      <div className="text-right">
-                        <a className="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    {/* Particles animation */}
-                    <Particles className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out" quantity={3} refresh={swiperInitialized} />                     
-                    {/* Radial gradient */}
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg02} width={56} height={56} alt="Icon 01" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Bot Detection</div>
-                        <div className="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
-                      </div>
-                      <div className="text-right">
-                        <a className="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    {/* Particles animation */}
-                    <Particles className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out" quantity={3} refresh={swiperInitialized} />                     
-                    {/* Radial gradient */}
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg03} width={56} height={56} alt="Icon 01" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Social integrations</div>
-                        <div className="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
-                      </div>
-                      <div className="text-right">
-                        <a className="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    {/* Particles animation */}
-                    <Particles className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out" quantity={3} refresh={swiperInitialized} />                     
-                    {/* Radial gradient */}
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg04} width={56} height={56} alt="Icon 01" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Progressive Profiling</div>
-                        <div className="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
-                      </div>
-                      <div className="text-right">
-                        <a className="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    {/* Particles animation */}
-                    <Particles className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out" quantity={3} refresh={swiperInitialized} />                     
-                    {/* Radial gradient */}
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg05} width={56} height={56} alt="Icon 05" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Secure Access</div>
-                        <div className="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
-                      </div>
-                      <div className="text-right">
-                        <a className="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
-              </Highlighter>
-            </div>
-          </div>
-
-          {/* Arrows */}
-          <div className="flex mt-8 justify-end">
-            <button className="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
-              <span className="sr-only">Previous</span>
-              <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" />
-              </svg>
-            </button>
-            <button className="carousel-next relative z-20 w-12 h-12 flex items-center justify-center group">
-              <span className="sr-only">Next</span>
-              <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" />
-              </svg>
-            </button>
-          </div>
-
+        {/* Carousel navigation arrows */}
+        <div className="flex mt-8 justify-end">
+          <button className="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
+            <span className="sr-only">Previous</span>
+            <svg
+              className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" />
+            </svg>
+          </button>
+          <button className="carousel-next relative z-20 w-12 h-12 flex items-center justify-center group">
+            <span className="sr-only">Next</span>
+            <svg
+              className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
-  )
+  );
 }
