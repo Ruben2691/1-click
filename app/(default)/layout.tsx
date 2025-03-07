@@ -19,7 +19,7 @@ export default function DefaultLayout({
   useEffect(() => {
     const fectchUser = async () => {
       const supabase = await createClient();
-      const { data: user, error } = await supabase.auth.getUser();
+      const { data: { user }, error } = await supabase.auth.getUser();
       if (error) {
         console.error(error)
         return
