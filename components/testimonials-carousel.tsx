@@ -63,7 +63,7 @@ interface Phase {
   img: StaticImageData;
 }
 
-const PhaseCard = ({ phase, swiperInitialized }) => {
+const PhaseCard = ({ phase, swiperInitialized }: { phase: Phase; swiperInitialized: boolean }) => {
   const [expanded, setExpanded] = useState(false);
 
   // Adjust these values as needed for your design:
